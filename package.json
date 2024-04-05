@@ -1,0 +1,24 @@
+{
+  "name": "@cosmoosjs/cli",
+  "module": "bin/index.js",
+  "devDependencies": {
+    "@biomejs/biome": "^1.6.4",
+    "@types/bun": "latest",
+    "@types/yargs": "^17.0.32"
+  },
+  "scripts": {
+    "build": "bunx tsup src/index.ts --format cjs -d ./bin",
+    "lint": "bunx biome check ./src",
+    "lint:safe": "bunx biome check --apply ./src"
+  },
+  "bin": {
+    "cosmoos": "./bin/index.js"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^4.3.2",
+    "tsup": "^8.0.2"
+  }
+}
