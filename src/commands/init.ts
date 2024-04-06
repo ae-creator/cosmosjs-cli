@@ -13,7 +13,7 @@ export async function init() {
   const packageFileName = 'package.json';
 
   try {
-    const { stdout, stderr } = await exec(`bun create ${templateLink}  ${outFolder}`)
+    await exec(`bun create ${templateLink}  ${outFolder}`)
     await delay(1000)
     const packageFile = require(path.join(__dirname, `${outFolder}/${packageFileName}`));
     packageFile.name = packageName;
