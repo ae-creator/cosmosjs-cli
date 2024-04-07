@@ -10,7 +10,7 @@
     "tsup": "^8.0.2"
   },
   "scripts": {
-    "build": "bunx tsup src/index.ts --format cjs -d ./bin",
+    "build": "bunx tsup src/index.ts src/commands --format cjs -d ./bin",
     "lint": "bunx biome check ./src",
     "lint:safe": "bunx biome check --apply ./src",
     "prepare": "husky"
