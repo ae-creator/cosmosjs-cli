@@ -26,13 +26,19 @@ if (argv.length > 2) {
   const commands = commandBuilder(path.join(__dirname, 'commands'));
   let currentCommand = 'default';
   const options: string[] = [];
+  /** if currentArgv has 1 or 2 '--' at the begining */
+  const hasOneOrTwoHyphens = /^-{1,2}\d+/;
   for (let i = 1; i < argv.length; i++) {
     const currentArgv = argv[i];
-    /** if currentArgv has 1 or 2 '--' at the begining */
-    if (currentArgv.match(/^-{1,2}\d+/)) {
+    if (currentArgv.match(hasOneOrTwoHyphens)) {
       options.push(currentArgv);
     } else {
-      currentCommand = currentArgv;
+      /** If last argv was a option then bind this as a value for the option */
+      if (argv[i - 1].match(hasOneOrTwoHyphens)) {
+        // TODO
+      } else {
+        currentCommand = currentArgv;
+      }
     }
   }
 
