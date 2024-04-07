@@ -6,3 +6,8 @@ export interface IOptions {
   /** Runner of option */
   run?: () => Promise<any>;
 }
+
+export interface IOptionsValue {
+  option: string;
+  value?: string;
+}
