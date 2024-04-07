@@ -1,6 +1,7 @@
 import * as path from 'node:path';
 import * as util from 'node:util';
 import { input } from '@inquirer/prompts';
+import type { ICommand } from '../interfaces/command.interface';
 import { delay } from '../utils/delay';
 const exec = util.promisify(require('node:child_process').exec);
 
@@ -19,3 +20,10 @@ export async function init() {
     console.error(error);
   }
 }
+
+export default {
+  name: 'init',
+  alias: ['i'],
+  description: 'Start an empty project from a blank template',
+  run: init,
+} as ICommand;
